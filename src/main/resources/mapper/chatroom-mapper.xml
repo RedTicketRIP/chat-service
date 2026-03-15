@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.onlinechat.repository.mapper.ChatRoomMapper">
+    <select id="findById" resultType="com.example.onlinechat.domain.ChatRoom">
+        select * from chatroom where id=#{rid}
+    </select>
+
+    <select id="findByIdForUpdate" resultType="com.example.onlinechat.domain.ChatRoom">
+        select * from chatroom where id=#{rid} for update
+    </select>
+
+    <insert id="save">
+        insert into chatroom(id, ownerId) values(#{rid}, #{ownerId})
+    </insert>
+
+    <select id="findAll" resultType="com.example.onlinechat.domain.ChatRoom">
+        select * from chatroom;
+    </select>
+
+    <delete id="deleteById">
+        delete from chatroom where id=#{rid}
+    </delete>
+
+    <insert id="addUserChatRoomMapping">
+        insert into users_chatroom(uid, rid) values(#{uid}, #{rid})
+    </insert>
+
+    <delete id="removeUserChatRoomMapping">
+        delete from users_chatroom where uid = #{uid} and rid = #{rid}
+    </delete>
+
+    <select id="findAllUserChatRoomMapping" resultType="com.example.onlinechat.domain.User">
+        select u.id, u.registerDate, u.password from users u join users_chatroom uc on uc.uid = u.id where uc.rid = #{rid};
+    </select>
+
+    <delete id="deleteAll">
+        delete from chatroom
+    </delete>
+
+    <select id="isExistUserChatroomMatch" resultType="java.lang.Boolean">
+        SELECT EXISTS (
+            SELECT 1
+            FROM users_chatroom
+            WHERE uid = #{uid}  AND rid = #{rid})
+    </select>
+
+
+</mapper>

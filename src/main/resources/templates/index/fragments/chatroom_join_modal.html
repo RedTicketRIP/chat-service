@@ -1,0 +1,26 @@
+<div th:fragment="chatroom_join_modal">
+    <div id="chatroom_join_modal" class="modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Join Chat Room</h2>
+            </header>
+            <div class="modal-body">
+                <input type="text" id="joinRoomSearchInput" class="modal-input" placeholder="Search by room name...">
+                <div id="room_list" class="participants-list">
+                    <!-- Example Item -->
+                    <div class="join-room-item">
+                        <div class="join-room-info">
+                            <span class="join-room-name">Development Team</span>
+                            <span class="join-room-meta">12 Members</span>
+                        </div>
+                        <button class="join-room-action-btn">Join</button>
+                    </div>
+                    <!-- Search results will populate here -->
+                </div>
+            </div>
+            <footer class="modal-footer">
+                <button id="joinRoomCancelBtn" class="modal_btn modal_close btn-secondary">Cancel</button>
+            </footer>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div th:fragment="captcha_modal">
+    <div id="captcha_modal" class="modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Security Check</h2>
+                <p>Too many failed attempts. Please solve the CAPTCHA.</p>
+            </header>
+            <div class="modal-body">
+                <div id="captchaError" class="error-message" hidden></div>
+                <input type="hidden" id="captcha_target_username" value="" hidden></input>
+                <div class="captcha-box">
+                    <div class="captcha-img-wrapper">
+                        <img id="captchaImage" src="" alt="CAPTCHA">
+                        <button type="button" id="refreshCaptchaBtn" class="btn-refresh" title="Refresh CAPTCHA">
+                            &#8635;
+                        </button>
+                    </div>
+                    
+                    <div class="form-group" style="width: 100%;">
+                        <label for="captcha_input">CAPTCHA Code</label>
+                        <input type="text" id="captcha_input" placeholder="Enter the characters above" autocomplete="off" maxlength="10">
+                    </div>
+                </div>
+            </div>
+            <footer class="modal-footer">
+                <button type="button" class="btn-login btn-secondary modal_close" id="captchaCancelBtn">Cancel</button>
+                <button type="button" id="captcha_submit_btn" class="btn-login">Verify & Login</button>
+            </footer>
+        </div>
+    </div>
+</div>

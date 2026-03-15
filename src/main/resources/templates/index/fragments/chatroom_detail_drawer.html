@@ -1,0 +1,36 @@
+<div th:fragment="chatroom_detail_drawer">
+    <aside id="chatroom_detail_drawer" class="drawer chatroom_detail_drawer">
+        <header class="chat-details-header">
+            <h2>Chat Details</h2>
+
+            <!-- Close Room Details Button-->
+            <button id="closeChatDetailsBtn" class="drawer_close"
+                    style="color: var(--text-secondary); font-size: 1.2rem;">&#10005;</button>
+        </header>
+
+        <div class="chat-details-body">
+            <div class="details-section">
+                <div class="details-section-title">Participants</div>
+                <!-- Joiner Container -->
+                <div id="drawer_joiner_list" class="drawer-joiner-list">
+                    <div class="drawer-joiner-item">
+                        <div class="drawer-joiner-img"></div>
+                        <span class="drawer-joiner-name">Loading...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leave, Delete -->
+            <div class="drawer-actions">
+                <button id="drawer_leave_btn" class="drawer-btn leave">
+                    <span class="drawer-btn-icon">&#10162;</span> <!-- Exit Icon -->
+                    Leave Room
+                </button>
+                <button id="drawer_delete_btn" class="drawer-btn delete">
+                    <span class="drawer-btn-icon">&#128465;</span> <!-- Trash Icon -->
+                    Delete Room
+                </button>
+            </div>
+        </div>
+    </aside>
+</div>

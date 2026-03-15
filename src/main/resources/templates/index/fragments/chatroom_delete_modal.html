@@ -1,0 +1,17 @@
+<div th:fragment="chatroom_delete_modal">
+    <div id="chatroom_delete_modal" class="modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Delete Room</h2>
+            </header>
+            <div class="modal-body">
+                <div id="delete_room_error" class="error-message" hidden></div>
+                <label class="modal-label">Are you sure?</label>
+            </div>
+            <footer class="modal-footer">
+                <button id="real_delete_btn" class="modal_btn btn-primary">Delete</button>
+                <button class="modal_btn modal_close btn-secondary">Cancel</button>
+            </footer>
+        </div>
+    </div>
+</div>

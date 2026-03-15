@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL Mapping -->
+<mapper namespace="com.example.onlinechat.repository.mapper.ChatMapper">
+    <select id="findById" resultType="com.example.onlinechat.domain.Chat">
+        select * from users where cid=#{id}
+    </select>
+
+    <select id="findChatHistory" resultType="com.example.onlinechat.domain.Chat">
+        select * from chat c
+                 where c.room_id = #{rid}
+                   and c.sendtime > (select jointime from users_chatroom where uid = #{uid} and rid=#{rid});
+    </select>
+
+    <insert id="save">
+        insert into chat(user_id, room_id, content, sendTime, isNotify) values(#{uid}, #{rid}, #{content}, #{sendTime}, #{isNotify})
+    </insert>
+
+    <delete id="deleteAll">
+        delete from chat
+    </delete>
+
+</mapper>
+
+
+

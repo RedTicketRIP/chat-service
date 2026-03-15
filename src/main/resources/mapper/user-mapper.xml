@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.onlinechat.repository.mapper.UserMapper">
+    <select id="findById" resultType="com.example.onlinechat.domain.User">
+        select * from users where id=#{id}
+    </select>
+
+    <select id="findUserChatRoomMapping" resultType="com.example.onlinechat.domain.User">
+        select u.id, u.registerDate, u.password from users_chatroom uc join users u on uc.uid = u.id where uid=#{uid} and rid=#{rid}
+    </select>
+
+    <insert id="save">
+        insert into users(id, password, isOnline) values(#{id}, #{password}, #{isOnline})
+    </insert>
+
+    <select id="findAllChatRoomUserMapping" resultType="com.example.onlinechat.domain.ChatRoom">
+        select r.id, r.createdTime from chatroom r join users_chatroom uc on uc.rid = r.id where uc.uid = #{uid};
+    </select>
+
+
+    <delete id="deleteAll">
+        delete from users;
+    </delete>
+
+    <update id="updateIsOnline">
+        update users set isOnline=#{isOnline} where id=#{uid}
+    </update>
+</mapper>
+

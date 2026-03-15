@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/userinfo_drawer.css">
+    <link rel="stylesheet" href="/css/chatDetails.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <header class="sidebar-header">
+                <div id="user_info">
+                    <span>&#8942;</span>
+                    <span id="username"></span>
+                </div>
+            </header>
+
+
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search or start new chat">
+            </div>
+
+            <!--Chatroom list container-->
+            <div class="chat-list">
+                <!-- Chatroom 1 -->
+                <div class="chat-banner active">
+                    <div class="chat-info">
+                        <div class="chat-header">
+                            <span class="chat-id">Main Page</span>
+                            <span class="chat-time"></span>
+                        </div>
+                        <div class="chat-preview"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Chat Room, Join Chat Room -->
+            <div class="add-chat-div">
+                <button id="btn_add_chatroom" class="add-chat-btn">
+                    <span>&#43;</span> New Chat
+                </button>
+                <button id="btn_join_chatroom" class="add-chat-btn join-room-btn">
+                    Join Room
+                </button>
+            </div>
+        </aside>
+
+
+
+        <!-- Main Chat Window -->
+        <main class="chat-window">
+            <header class="chat-window-header">
+                <div class="header-info">
+
+                    <!-- Current Chatroom -->
+                    <div class="header-name">
+
+                    </div>
+
+                    <!-- Login, Register -->
+                    <div class="auth-actions">
+                        <button id="logoutBtn" class="auth-btn logout" onclick="location.href='/logout'" hidden>Logout</button>
+                        <button id="loginBtn" class="auth-btn login" onclick="location.href='/login'">Login</button>
+                        <button id="registerBtn" class="auth-btn register" onclick="location.href='/register'">Register</button>
+                    </div>
+                </div>
+
+                <!-- Menu Icon -->
+                <div class="header-icons">
+                    <button id="menuBtn" class="icon-btn"
+                        style="background:none; border:none; padding:0;">&#8942;</button>
+                </div>
+            </header>
+
+
+            <!-- Message Container -->
+            <div class="messages-container">
+                <div class="message incoming">
+                    Hi there! How is the project going?
+                    <span class="message-time">14:20</span>
+                </div>
+                <div class="message outgoing">
+                    It's going great! Just finishing up the layout.
+                    <span class="message-time">14:21</span>
+                </div>
+            </div>
+
+            <footer class="input-area">
+                <span class="icon-btn">&#128512;</span> <!-- Emoji Icon -->
+                <span class="icon-btn">&#43;</span> <!-- Plus/Attachment Icon -->
+                <input type="text" class="message-input" placeholder="Type a message" disabled>
+                <span class="sendBtn icon-btn">&#10148;</span> <!-- Send Icon -->
+            </footer>
+        </main>
+    </div>
+
+    <!-- drawer 나올때 배경 흐리게 하기 위한 용도. -->
+    <div class="backdrop"></div>
+
+    <!-- user profile drawer -->
+    <th:block th:replace="~{/index/fragments/user_profile_drawer.html :: user_profile_drawer}"></th:block>
+
+    <!-- chatroom detail drawer -->
+    <th:block th:replace="~{/index/fragments/chatroom_detail_drawer.html :: chatroom_detail_drawer}"></th:block>
+
+    <!-- create chatroom modal -->
+    <th:block th:replace="~{/index/fragments/chatroom_create_modal.html :: chatroom_create_modal}"></th:block>
+
+    <!-- leave chatroom modal -->
+    <th:block th:replace="~{/index/fragments/chatroom_leave_modal.html :: chatroom_leave_modal}"></th:block>
+
+    <!-- delete chatroom modal -->
+    <th:block th:replace="~{/index/fragments/chatroom_delete_modal.html :: chatroom_delete_modal}"></th:block>
+
+    <!-- join chatroom modal -->
+    <th:block th:replace="~{/index/fragments/chatroom_join_modal.html :: chatroom_join_modal}"></th:block>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+
+    <script type="module" src="js/stomp.js"></script>
+    <script type="module" src="js/index/init.js"></script>
+
+    <script type="module" src="js/api.js"></script>
+    <script type="module" src="js/axios.js"></script>
+    <script type="module" src="js/init/component.js"></script>
+    <script type="module" src="js/index/addroom.js"></script>
+    <script type="module" src="js/index/user_profile_drawer.js"></script>
+    <script type="module" src="js/index/joinroom.js"></script>
+    <script type="module" src="js/index/deleteroom.js"></script>
+    <script type="module" src="js/index/leaveroom.js"></script>
+    <script type="module" src="js/index/chat_container.js"></script>
+    <script type="module" src="js/index/chatroom_detail.js"></script>
+
+
+
+</body>
+
+</html>

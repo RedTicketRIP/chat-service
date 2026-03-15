@@ -1,0 +1,18 @@
+<div th:fragment="chatroom_create_modal">
+    <div id="chatroom_create_modal" class="modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Create New Room</h2>
+            </header>
+            <div class="modal-body">
+                <div id="createRoomError" class="error-message" hidden></div>
+                <label for="chatroom_name_input" class="modal-label">Room Name</label>
+                <input type="text" id="chatroom_name_input" class="modal-input" placeholder="e.g. Project Team Alpha">
+            </div>
+            <footer class="modal-footer">
+                <button id="createroom_btn" class="modal_btn btn-primary">Create</button>
+                <button id="cancelBtn" class="modal_btn modal_close btn-secondary">Cancel</button>
+            </footer>
+        </div>
+    </div>
+</div>

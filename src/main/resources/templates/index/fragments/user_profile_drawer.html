@@ -1,0 +1,28 @@
+<div th:fragment="user_profile_drawer">
+    <aside id="user_profile_drawer" class="drawer profile-drawer">
+        <header class="drawer-header">
+            <button id="closeDrawerBtn" class="drawer_close icon-btn-plain">&#10005;</button>
+            <h2>Profile</h2>
+        </header>
+        <div class="drawer-body">
+            <!--<div class="drawer-avatar-large"></div>-->
+
+            <!-- Your name -->
+            <div class="drawer-info-group">
+                <label>Your Name</label>
+                <div id="username" class="drawer-info-value">Loading...</div>
+            </div>
+
+            <!-- Status -->
+            <div class="drawer-info-group">
+                <label>About</label>
+                <div class="drawer-info-value">Available</div>
+            </div>
+        </div>
+        <footer id='profile_footer' class="drawer-footer" hidden>
+            <button id="logout" class="drawer-logout-btn">
+                <span>&#10162;</span> Logout
+            </button>
+        </footer>
+    </aside>
+</div>

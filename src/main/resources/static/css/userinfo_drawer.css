@@ -1,0 +1,129 @@
+/* Profile Drawer */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.profile-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1001;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-drawer.show {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    height: 60px;
+    /* Reduced from 110px */
+    background-color: var(--accent-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    /* Changed from flex-end */
+    padding: 0 20px;
+    gap: 20px;
+}
+
+.drawer-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.drawer-body {
+    flex: 1;
+    padding: 30px;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+.drawer-info-group {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    /* Slight rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.drawer-info-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.drawer-info-value {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    font-weight: 400;
+    /* Regular weight */
+}
+
+.drawer_close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Footer & Logout Button */
+.drawer-footer {
+    padding: 20px;
+    background-color: #f0f2f5;
+    border-top: 1px solid #e0e0e0;
+}
+
+.drawer-logout-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.2s;
+}
+
+.drawer-logout-btn:hover {
+    background-color: #c82333;
+}
+
+.drawer-logout-btn span {
+    font-size: 1.2rem;
+}

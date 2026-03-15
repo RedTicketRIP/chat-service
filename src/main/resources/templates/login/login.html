@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login | Online Chat</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h2>Welcome Back</h2>
+                <p>Log in to your account and start chatting.</p>
+            </div>
+
+            <div id="loginError" class="error-message" hidden></div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required
+                        autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required
+                        autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="btn-login">Log In</button>
+            </form>
+
+            <div class="login-footer" style="margin-top: 24px; font-size: 14px; color: var(--text-secondary);">
+                Don't have an account? <a th:href="@{/register}"
+                    style="color: var(--accent-color); font-weight: 600; text-decoration: none;">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="~{login/fragment/captcha_modal :: captcha_modal}"></th:block>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" th:src="@{/js/init/component.js}"></script>
+    <script type="module" th:src="@{/js/login/login.js}"></script>
+
+</body>
+
+</html>
